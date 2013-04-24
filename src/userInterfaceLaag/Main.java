@@ -25,7 +25,7 @@ public class Main
 	Vliegtuig vt3 = new Vliegtuig(lvm, vtt4, "Fokke", datum);
 	
 	Land l1 = new Land("Nederland", 31);
-	Land l2 = new Land("Belgi�", 32);
+	Land l2 = new Land("Belgie", 32);
 	Land l3 = new Land("Frankrijk", 11);
 	Land l4 = new Land("Duitsland", 13);
 	
