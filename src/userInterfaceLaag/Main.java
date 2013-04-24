@@ -11,10 +11,10 @@ public class Main
 	Fabrikant f1 = new Fabrikant("Airbus","G. Dejenelle");
     Fabrikant f2 = new Fabrikant("Fokker","A.J. Berger");
 
-	VliegtuigType vtt1 = f1.creëerVliegtuigType("A-200", 60, 80);
-	VliegtuigType vtt2 = f1.creëerVliegtuigType("A-201", 65, 88);
-	VliegtuigType vtt3 = f2.creëerVliegtuigType("F-100", 37, 70);
-	VliegtuigType vtt4 = f2.creëerVliegtuigType("F-101", 45, 82);
+	VliegtuigType vtt1 = f1.creeerVliegtuigType("A-200", 60, 80);
+	VliegtuigType vtt2 = f1.creeerVliegtuigType("A-201", 65, 88);
+	VliegtuigType vtt3 = f2.creeerVliegtuigType("F-100", 37, 70);
+	VliegtuigType vtt4 = f2.creeerVliegtuigType("F-101", 45, 82);
 
 	Calendar datum = Calendar.getInstance();
 	datum.set(2000, 01, 01);
@@ -25,7 +25,7 @@ public class Main
 	Vliegtuig vt3 = new Vliegtuig(lvm, vtt4, "Fokke", datum);
 	
 	Land l1 = new Land("Nederland", 31);
-	Land l2 = new Land("België", 32);
+	Land l2 = new Land("Belgiï¿½", 32);
 	Land l3 = new Land("Frankrijk", 11);
 	Land l4 = new Land("Duitsland", 13);
 	

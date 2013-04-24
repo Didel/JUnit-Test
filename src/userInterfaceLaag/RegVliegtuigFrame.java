@@ -45,7 +45,7 @@ public class RegVliegtuigFrame extends javax.swing.JFrame {
 
 	// Niet gegenereerde (dus zelf toegevoegde) attributen
 	private RegVliegtuigController rvc;
-	private boolean Geïnitialiseerd = false;
+	private boolean Geinitialiseerd = false;
 	private Calendar inGebruik = Calendar.getInstance();
 	private Set<String> fabrikantenSet;
 
@@ -242,14 +242,14 @@ public class RegVliegtuigFrame extends javax.swing.JFrame {
 		for(String s : fabrikantenSet){
 			FabrikantCombo.addItem(s);
 		}
-		Geïnitialiseerd = true;
+		Geinitialiseerd = true;
 		/** Voorkomt dat de ItemStateChanged-event van FabrikantCombo iedere keer
 		 * getriggerd wordt als er een add() wordt gedaan. */
 	}
 
 	/** Auto-generated event handler method */
 	protected void FabrikantComboItemStateChanged(ItemEvent evt) {
-		if (Geïnitialiseerd) {
+		if (Geinitialiseerd) {
 			String fabrnm = (String) FabrikantCombo.getSelectedItem();
 			if (fabrnm != "") {
 				String fbrn = (String) FabrikantCombo.getSelectedItem();

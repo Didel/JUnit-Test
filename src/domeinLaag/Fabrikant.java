@@ -61,7 +61,7 @@ public class Fabrikant {
 	@param capNR
 	@return VliegtuigType
 	 */
-	public VliegtuigType creëerVliegtuigType(String code, int capR, int capNR) {
+	public VliegtuigType creeerVliegtuigType(String code, int capR, int capNR) {
 		VliegtuigType vtt = new VliegtuigType(this, code, capR, capNR);
 		vliegtuigTypen.add(vtt);
 		return vtt;
