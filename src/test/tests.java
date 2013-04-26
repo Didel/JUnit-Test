@@ -8,6 +8,7 @@ import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+<<<<<<< HEAD
 import domeinLaag.Fabrikant;
 import domeinLaag.Land;
 import domeinLaag.Luchthaven;
@@ -15,6 +16,9 @@ import domeinLaag.LuchtvaartMaatschappij;
 import domeinLaag.Vliegtuig;
 import domeinLaag.VliegtuigType;
 import domeinLaag.Vlucht;
+=======
+import domeinLaag.*;
+>>>>>>> Vlucht toegevoegd
 
 public class tests {
 
@@ -67,7 +71,15 @@ public class tests {
 
 	@Test
 	public void test() {
-		Vlucht v1 = new Vlucht(vt3, lh1);
+		/** 
+		 * 	Test 1
+		 * 	Vlucht: Fokke van Schiphol naar Schiphol
+		 * 	vertrektijd: null , aankomsttijd null
+		 * 	Foutmelding: Vertrekpunt = Bestemming
+		**/
+		Vlucht testVlucht = new Vlucht(vt3, lh1, lh1, null, null);
+		
+		fail("Not yet implemented");
 	}
 
 }
