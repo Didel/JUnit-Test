@@ -60,14 +60,15 @@ public class tests {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void test() {
+	@Test (expected=VluchtException.class)
+	public void test1() throws VluchtException {
 		/** 
 		 * 	Test 1
 		 * 	Vlucht: Fokke van Schiphol naar Schiphol
 		 * 	vertrektijd: null , aankomsttijd null
 		 * 	Foutmelding: Vertrekpunt = Bestemming
 		**/
+		
 		vertrek.set(2008, 0, 1, 12, 0);
 		aankomst.set(2008, 0, 1, 12, 30);
 
