@@ -19,6 +19,7 @@ public class tests {
 	protected static Land l1, l2, l3, l4; 
 	protected static Luchthaven lh1, lh2, lh3;
 	protected static Vlucht v1;
+	protected static Calendar vertrek, aankomst;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -48,9 +49,9 @@ public class tests {
 		lh2 = new Luchthaven("Charles de Gaule", "PRI", true, l3);
 		lh3 = new Luchthaven("Tegel", "TEG", true, l4);
 
-		Calendar vertrek = Calendar.getInstance();
+		vertrek = Calendar.getInstance();
 		vertrek.set(2008, 0, 1, 12, 0);
-		Calendar aankomst = Calendar.getInstance();
+		aankomst = Calendar.getInstance();
 		aankomst.set(2008, 0, 2, 12, 0);
 		v1 = new Vlucht(vt3, lh1, lh2, vertrek, aankomst);
 	}
