@@ -68,9 +68,11 @@ public class tests {
 		 * 	vertrektijd: null , aankomsttijd null
 		 * 	Foutmelding: Vertrekpunt = Bestemming
 		**/
-		Vlucht testVlucht = new Vlucht(vt3, lh1, lh1, null, null);
+		vertrek.set(2008, 0, 1, 12, 0);
+		aankomst.set(2008, 0, 1, 12, 30);
+
+		Vlucht testVlucht = new Vlucht(vt3, lh1, lh1, vertrek, aankomst);
 		
-		fail("Not yet implemented");
 	}
 
 }
