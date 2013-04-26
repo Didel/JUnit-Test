@@ -67,6 +67,8 @@ public class tests {
 		 * 	Vlucht: Fokke van Schiphol naar Schiphol
 		 * 	vertrektijd: null , aankomsttijd null
 		 * 	Foutmelding: Vertrekpunt = Bestemming
+		 * 
+		 * Dimtier: even, Robin: oneven
 		**/
 		
 		vertrek.set(2008, 0, 1, 12, 0);
