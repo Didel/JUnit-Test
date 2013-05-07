@@ -53,11 +53,14 @@ public class tests {
 		vertrek.set(2008, 0, 1, 12, 0);
 		aankomst = Calendar.getInstance();
 		aankomst.set(2008, 0, 2, 12, 0);
-		v1 = new Vlucht(vt3, lh1, lh2, vertrek, aankomst);
+		v1 = new Vlucht(vt3, lh1, lh3, vertrek, aankomst);
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		vertrek.set(2008, 0, 1, 12, 0);
+		aankomst.set(2008, 0, 2, 12, 0);
+		v1 = new Vlucht(vt3, lh1, lh3, vertrek, aankomst);
 	}
 
 	@Test (expected=VluchtException.class)
@@ -76,6 +79,116 @@ public class tests {
 
 		Vlucht testVlucht = new Vlucht(vt3, lh1, lh1, vertrek, aankomst);
 		
+	}
+	
+	@Test (expected = VluchtException.class)
+	public void test3() throws VluchtException{
+		/**
+		 * 	Test 3
+		 * 	Vlucht: Fokke van Schiphol naar Tegel
+		 * 	Vertrektijd: 31 februari 2008 12:00uur, aankomsttijd: null
+		 * 	Foutmelding verwacht: Vertrekpunt = Bestemming
+		 */
+		
+		vertrek.set(2008, 02, 31, 12, 00);
+		v1.zetVertrekTijd(vertrek);
+		
+	}
+	
+	@Test
+	public void test5(){
+		/**
+		 * 	Test 5
+		 * 	Vlucht: Fokke van Schiphol naar Tegel
+		 * 	Vertrektijd: 1 januari 2008 12:00 uur, aankomsttijd: null
+		 * 	Foutmelding verwacht: geen
+		 */
+		vertrek.set(2008, 01, 01, 12, 00);
+		
+		try {
+			v1.zetVertrekTijd(vertrek);
+		} catch (VluchtException ve) {
+			fail("Er is iets mis gegaan met het instellen van de vertrektijd");
+		}
+	}
+	
+	@Test
+	public void test7(){
+		/**
+		 * 	Test 7
+		 * 	Vlucht: Fokke van Schiphol naar Tegel
+		 * 	Vertrektijd: 2 januari 2008 12:00 uur, aankomsttijd: null
+		 * 	Foutmelding verwacht: geen
+		 */
+	
+		vertrek.set(2008, 01, 2, 12, 00);
+		
+		try {
+			v1.zetVertrekTijd(vertrek);
+		} catch (VluchtException e) {
+			fail("Er is iets mis gegaan met het instellen van de vertrektijd");
+		}
+	}
+	
+	@Test
+	public void test9(){
+		/**
+		 * 	Test 9
+		 * 	Vlucht: Fokke van Schiphol naar Tegel
+		 * 	Vertrektijd: 2 januari 2008 12:01 uur, aankomsttijd: 2 januari 2008 12:01
+		 * 	Foutmelding verwacht: geen
+		 */
+		
+		aankomst.set(2008, 01, 02, 12, 01);
+		vertrek.set(2008, 01, 02, 12, 01);
+		
+		try {
+			v1.zetVertrekTijd(vertrek);
+			v1.zetAankomstTijd(aankomst);
+		} catch (VluchtException e) {
+			fail("Er is iets mis gegaan met het setten van de vertrek of aankomsttijd");
+		}
+	}
+	
+	@Test (expected = VluchtException.class)
+	public void test11() throws VluchtException{
+		/**
+		 * 	Test 11
+		 * 	Vlucht: null van Schiphol naar Tegel
+		 * 	Vertrektijd: 1 maart 2008 12:00 uur, aankomsttijd: 1 maart 2008 14:00 uur
+		 * 	Foutmelding verwacht: geen vliegtuig gekozen
+		 */
+		vertrek.set(2008, 03, 01, 12, 00);
+		aankomst.set(2008, 03, 01, 14, 00);
+		Vlucht testVlucht = new Vlucht(null, lh1, lh3, vertrek, aankomst);
+		testVlucht.bewaar();
+	}
+	
+	@Test (expected = VluchtException.class)
+	public void test13() throws VluchtException{
+		/**
+		 * 	Test 13
+		 * 	Vlucht: Fokke van Schiphol naar null
+		 * 	Vertrektijd: 1 maart 2008 12:00 uur, aankomsttijd: 1 maart 2008 14:00 uur
+		 * 	Foutmelding verwacht: Bestemming ontbreekt
+		 */
+		vertrek.set(2008, 03, 01, 12, 00);
+		aankomst.set(2008, 03, 01, 14, 00);
+		Vlucht testVlucht = new Vlucht(vt3, lh1, null, vertrek, aankomst);
+		testVlucht.bewaar();
+	}
+	@Test (expected = VluchtException.class)
+	public void test15() throws VluchtException{
+		/**
+		 * 	Test 15
+		 * 	Vlucht: Fokke van Schiphol naar null
+		 * 	Vertrektijd: 1 maart 2008 12:00 uur, aankomsttijd: null
+		 * 	Foutmelding verwacht: aankomsttijd ontbreekt
+		 */
+		
+		vertrek.set(2008, 03, 01, 12, 00);
+		Vlucht testVlucht = new Vlucht(vt3, lh1, lh3, vertrek, null);
+		testVlucht.bewaar();
 	}
 
 }
