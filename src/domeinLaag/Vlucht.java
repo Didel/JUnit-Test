@@ -38,8 +38,12 @@ public class Vlucht
     */
    public Vlucht(Vliegtuig vt, Luchthaven vertrekp)
    {
-    this.vt = vt;
-    this.vertrekpunt = vertrekp;
+	   if (vt == null)
+		   throw new IllegalArgumentException ("Geen vliegtuig gekozen");
+		this.vt = vt;
+		if (vertrekp == null)
+			throw new IllegalArgumentException ("Vertrekpunt ontbreekt");
+		this.vertrekpunt = vertrekp;
    }
 
    /**
@@ -62,7 +66,7 @@ public class Vlucht
     */
    public void zetBestemming(Luchthaven bestemming)
    {
-   	if(bestemming == vertrekpunt)
+	if(bestemming != vertrekpunt)
    		this.bestemming = bestemming;
    	else
    		throw new IllegalArgumentException("bestemming en vertrek zijn gelijk");
@@ -108,7 +112,7 @@ public class Vlucht
 	} catch (IllegalArgumentException e){
 		throw new VluchtException("Geen geldige datum!");
 	}
-    if(aTijd.before(vertrekTijd))
+    if(aTijd.after(vertrekTijd))
     	aankomstTijd = (Calendar) aTijd.clone();
    	else
    		throw new VluchtException("aankomsttijd voor vertrektijd");
@@ -144,15 +148,15 @@ public class Vlucht
 	}
 
 
-	public Object getVertrekpunt() {
-		// TODO Auto-generated method stub
-		return null;
+	// Was fout aangegeven als LuchtHaven
+	 public Luchthaven getVertrekpunt () {
+		 return vertrekpunt;
 	}
 
 
 	public static Set<Vlucht> geefAlleVluchten() {
 		// TODO Auto-generated method stub
-		return null;
+		return alleVluchten;
 	}
 
 
